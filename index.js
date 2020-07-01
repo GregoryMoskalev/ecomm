@@ -21,7 +21,7 @@ app.get('/signup', (req, res) => {
     </div>
     `);
 });
-
+//signup???
 app.post('/signup', async (req, res) => {
 	const { email, password, passwordConfirmation } = req.body;
 

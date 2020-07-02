@@ -36,7 +36,7 @@ router.get('/signout', (req, res) => {
 });
 
 router.get('/signin', (req, res) => {
-	res.send(signinTemplate({ req }));
+	res.send(signinTemplate());
 });
 
 router.post('/signin', async (req, res) => {

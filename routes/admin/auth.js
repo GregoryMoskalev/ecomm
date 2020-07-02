@@ -1,5 +1,6 @@
 const express = require('express');
 const { check, validationResult } = require('express-validator');
+
 const usersRepo = require('../../repositories/users');
 const signupTemplate = require('../../views/admin/auth/signup');
 const signinTemplate = require('../../views/admin/auth/signin');
@@ -22,10 +23,6 @@ router.post(
 	[ requireEmail, requirePassword, requirePasswordConfirmation ],
 	async (req, res) => {
 		const errors = validationResult(req);
-
-		if (!errors.isEmpty()) {
-			return res.send(signinTemplate({ errors }));
-		}
 
 		if (!errors.isEmpty()) {
 			return res.send(signupTemplate({ req, errors }));
@@ -51,7 +48,10 @@ router.get('/signin', (req, res) => {
 
 router.post('/signin', [ requireEmailExists, requireValidPasswordForUser ], async (req, res) => {
 	const errors = validationResult(req);
-	console.log(errors);
+
+	if (!errors.isEmpty()) {
+		return res.send(signinTemplate({ errors }));
+	}
 
 	const { email } = req.body;
 

@@ -23,7 +23,7 @@ router.post(
 		const errors = validationResult(req);
 
 		if (!errors.isEmpty()) {
-			return res.send(productsNewTemplateP({ errors }));
+			return res.send(productsNewTemplate({ errors }));
 		}
 
 		const image = req.file.buffer.toString('base64');

@@ -12,13 +12,13 @@ module.exports = ({ product, errors }) => {
             <div class="field">
               <label class="label">Title</label>
               <input class="input" placeholder="Title" value="${product.title}" name="title">
-              ${getError(errors, 'title')}
+              <p class="help is-danger">${getError(errors, 'title')}</p>
             </div>
             
             <div class="field">
               <label class="label">Price</label>
               <input class="input" placeholder="Price" value="${product.price}" name="price">
-              ${getError(errors, 'price')}
+              <p class="help is-danger">${getError(errors, 'price')}</p>
             </div>
             
             <div class="field">
@@ -26,7 +26,7 @@ module.exports = ({ product, errors }) => {
               <input type="file" name="image" />
             </div>
             <br />
-            <button class="button is-primary">Create</button>
+            <button class="button is-primary">Edit</button>
           </form>
         </div>
       </div>

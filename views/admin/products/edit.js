@@ -1,6 +1,7 @@
+const { getError } = require('../../helpers');
 const layout = require('../layout');
 
-module.exports = ({ product }) => {
+module.exports = ({ product, errors }) => {
 	return layout({
 		content: `
         <div class="columns is-centered">
@@ -11,11 +12,13 @@ module.exports = ({ product }) => {
             <div class="field">
               <label class="label">Title</label>
               <input class="input" placeholder="Title" value="${product.title}" name="title">
+              ${getError(errors, 'title')}
             </div>
             
             <div class="field">
               <label class="label">Price</label>
               <input class="input" placeholder="Price" value="${product.price}" name="price">
+              ${getError(errors, 'price')}
             </div>
             
             <div class="field">

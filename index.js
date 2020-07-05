@@ -4,6 +4,7 @@ const cookieSession = require('cookie-session');
 const authRouter = require('./routes/admin/auth.js');
 const adminProductsRouter = require('./routes/admin/products');
 const productsRouter = require('./routes/products');
+const cartsRouter = require('./routes/carts');
 
 const app = express();
 
@@ -13,6 +14,7 @@ app.use(cookieSession({ keys: [ '9827f07cbb834bfaadd0feb250edb219' ] }));
 app.use(authRouter);
 app.use(productsRouter);
 app.use(adminProductsRouter);
+app.use(cartsRouter);
 
 app.listen(3000, () => {
 	console.log('Listening');
